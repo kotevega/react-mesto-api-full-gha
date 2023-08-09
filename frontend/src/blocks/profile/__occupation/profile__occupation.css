@@ -1,0 +1,20 @@
+.profile__occupation {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 715px) {
+  .profile__occupation {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,16 @@
+.register__submit-button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  margin: 216px auto 15px;
+  padding: 14px 0 14px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.popup__submit-button:hover {
+  opacity: 0.85;
+}
