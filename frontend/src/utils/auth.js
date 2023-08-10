@@ -10,7 +10,7 @@ function checkResponse(res) {
 export const register = (email, password) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
     credentials: "include",
     body: JSON.stringify({ email, password }),
   }).then((res) => checkResponse(res));
@@ -19,7 +19,7 @@ export const register = (email, password) => {
 export const authorize = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
     credentials: "include",
     body: JSON.stringify({ email, password }),
   }).then((res) => checkResponse(res));
@@ -28,9 +28,7 @@ export const authorize = (email, password) => {
 export const checkTokenApi = () => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
     credentials: "include",
   }).then((res) => checkResponse(res));
 };
