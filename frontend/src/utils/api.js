@@ -85,6 +85,6 @@ class Api {
 }
 
 export default Api = new Api({
-  baseUrl: "https://api.mestokote.nomoreparties.co",
+  baseUrl: "http://localhost:3000",
   headers: { Accept: "application/json", "Content-Type": "application/json" },
 });

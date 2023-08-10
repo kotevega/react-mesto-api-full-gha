@@ -1,4 +1,4 @@
-export const baseUrl = "https://api.mestokote.nomoreparties.co";
+export const baseUrl = "http://localhost:3000";
 
 function checkResponse(res) {
   if (res.ok) {
