@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -10,7 +11,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT, DB_URL } = process.env;
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
@@ -20,8 +21,24 @@ mongoose.connect(DB_URL, {
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3001',
+      'https://mestokote.nomoreparties.co',
+      'https://api.mestokote.nomoreparties.co',
+      'http://mestokote.nomoreparties.co',
+      'http://api.mestokote.nomoreparties.co',
+    ],
+    credentials: true,
+  }),
+);
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
