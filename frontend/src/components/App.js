@@ -14,7 +14,7 @@ import InfoTooltip from "./InfoTooltip.js";
 import Register from "./Register.js";
 import Login from "./Login.js";
 import api from "../utils/api.js";
-import { checkTokenApi } from "../utils/auth.js";
+import { checkTokenApi, signOut } from "../utils/auth.js";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = React.useState(false);
@@ -154,15 +154,24 @@ function App() {
     setTitleTooltip("Что-то пошло не так! Попробуйте ещё раз.");
   }
 
+  function logOut() {
+    signOut()
+      .then((res) => {
+        if (!res) {
+          return;
+        }
+        setLoggedIn(false);
+      })
+      .catch((evt) => {
+        console.log(`Ошибка: ${evt}`);
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="root">
         <div className="page">
-          <Header
-            isLoggedIn={isLoggedIn}
-            email={email}
-            onSignOut={() => setLoggedIn(false)}
-          />
+          <Header isLoggedIn={isLoggedIn} email={email} onSignOut={logOut} />
           <Routes>
             <Route
               path="/sign-up"

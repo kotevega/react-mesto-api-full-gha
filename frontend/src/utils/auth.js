@@ -33,3 +33,10 @@ export const checkTokenApi = () => {
     credentials: "include",
   }).then((res) => checkResponse(res));
 };
+
+export const signOut = () => {
+  return fetch(`${baseUrl}/signout`, {
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
+    credentials: "include",
+  }).then((res) => checkResponse(res));
+};
