@@ -10,6 +10,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "scp": "^0.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -18,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* kotevega@84.252.129.1:/home/kotevega/mesto-frontend"
+    "deploy": "npm run build && scp -r ./build/* kotevega@84.252.129.1:/home/kotevega/frontend-mesto"
   },
   "eslintConfig": {
     "extends": [

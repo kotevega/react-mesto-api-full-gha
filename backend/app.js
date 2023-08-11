@@ -27,9 +27,6 @@ app.use(
     origin: [
       'http://localhost:3001',
       'https://mestokote.nomoreparties.co',
-      'https://api.mestokote.nomoreparties.co',
-      'http://mestokote.nomoreparties.co',
-      'http://api.mestokote.nomoreparties.co',
     ],
     credentials: true,
   }),
